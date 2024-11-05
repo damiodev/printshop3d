@@ -14,17 +14,34 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
+     * Les attributs qui sont massivement attribuables.
      *
      * @var array<int, string>
      */
     protected $fillable = [
         'name',
+        'firstname',
         'email',
         'password',
+        'newsletter',
+        'last_seen',
+    ];
+
+    /**
+     * The attributes that should be mutated to dates.
+     * L'attribut qui doit être converti en types natifs.
+     * 
+     * @description On déplace la propiété $dates pour bénéficier de Carbon (https://carbon.nesbot.com/docs/)
+     *
+     * @var array
+     */
+    protected $dates = [
+        'last_seen',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
+     * Les attributs qui doivent être masqués pour les tableaux.
      *
      * @var array<int, string>
      */
@@ -35,6 +52,7 @@ class User extends Authenticatable
 
     /**
      * Get the attributes that should be cast.
+     * Obtenez les attributs qui doivent être convertis en types natifs.
      *
      * @return array<string, string>
      */

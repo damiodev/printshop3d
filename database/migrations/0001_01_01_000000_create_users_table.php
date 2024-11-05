@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('name');                     // Nom de l'utilisateur
+            $table->string('firstname');                // Prénom de l'utilisateur
+            $table->string('email')->unique();          // Adresse email de l'utilisateur
+            $table->string('password');                 // Mot de passe de l'utilisateur
+            $table->boolean('newsletter');              // Acceptation de la newsletter
+            $table->boolean('admin')->default(false);   // Droit d'administration
+            $table->timestamp('last_seen')->nullable(); // Date de dernière connexion
+            $table->rememberToken();                    // Token de connexion
+            $table->timestamps();                       // Date de création et de modification
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
