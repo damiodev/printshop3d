@@ -14,4 +14,13 @@ class State extends Model
     ];
 
     public $timestamps = false; // On désactive les timestamps dans la table
+
+    /**
+     * Get the orders for the state.
+     * Obtenir les commandes pour l'état.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
