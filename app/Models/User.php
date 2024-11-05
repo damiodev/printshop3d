@@ -63,4 +63,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the addresses for the user.
+     * Obtenir les adresses pour l'utilisateur.
+     */
+    public function addresses()
+    {
+        return $this->hasMany(Address::class); // Un utilisateur peut avoir plusieurs adresses
+    }
+
+    /**
+     * Get the orders for the user.
+     * Obtenir les commandes pour l'utilisateur.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class); // Un utilisateur peut avoir plusieurs commandes
+    }
 }

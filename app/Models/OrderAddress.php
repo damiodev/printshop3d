@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class OrderAddress extends Model
 {
     protected $fillable = [
         'name',
@@ -19,14 +19,15 @@ class Address extends Model
         'city',
         'phone',
         'country_id',
+        'facturation',
     ];
 
     /**
-     * Get the country.
-     * Obtenir le pays.
+     * Get the order.
+     * Obtenir la commande.
      */
     public function country()
     {
-        return $this->belongsTo(Country::class); // Une adresse appartient à un pays
+        return $this->belongsTo(Country::class); // Une adresse de commande appartient à un pays
     }
 }
